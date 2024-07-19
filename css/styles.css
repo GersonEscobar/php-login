@@ -1,0 +1,66 @@
+/* Estilo general para el cuerpo de la página */
+body {
+    background-image: url('fondo.jpeg'); /* Ruta a tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo del formulario de login */
+.login-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad para el formulario */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra más prominente */
+    width: 100%;
+    max-width: 350px; /* Ancho máximo del formulario */
+    text-align: center; /* Centra el texto dentro del formulario */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+}
+
+/* Estilo del título dentro del formulario */
+.login-form h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Color del texto */
+    margin-top: 0; /* Elimina margen superior */
+}
+
+/* Estilo para los párrafos dentro del formulario */
+.login-form p {
+    margin-bottom: 15px;
+}
+
+/* Estilo de los campos de entrada */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 20px); /* Ajusta el ancho para que coincida con el padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+}
+
+/* Estilo del botón de envío */
+.login-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50; /* Color de fondo del botón */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #45a049; /* Color de fondo cuando se pasa el ratón */
+}
