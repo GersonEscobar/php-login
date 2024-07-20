@@ -1,27 +1,33 @@
 <?php
 include 'db.php';
-$usuario=$_POST['usuario'];
-$contraseña=$_POST['contraseña'];
-
 session_start();
-$_SESSION['usuario']=$usuario;
 
+$usuario = $_POST['username'];
+$contraseña = $_POST['contra'];
+$_SESSION['usuario'] = $usuario;
 
-$consulta="SELECT * FROM users WHERE username='$usuario' and password='$contraseña'";
-$resultado = mysqli_query($conexion,$consulta);
+// Preparar la consulta
+$stmt = $conexion->prepare("SELECT * FROM users WHERE username = ? AND contra = ?");
+$stmt->bind_param("ss", $usuario, $contraseña);
 
-$filas=mysqli_num_rows($resultado);
+// Ejecutar la consulta
+$stmt->execute();
 
-if($filas){
+// Obtener el resultado
+$resultado = $stmt->get_result();
+$filas = $resultado->num_rows;
+
+if ($filas > 0) {
     header("location: home.php");
-}else{
-    ?>
-    <?php
+    exit;
+} else {
     include("index.php");
-    ?>
-
-    <h1 class="bad">ERROR EN AUTENTICACION</h1>
-    <?php
+    echo '<script>alert("error en autenticacion");</script>';
 }
-mysqli_free_result($resultado);
-mysqli_close($conexion);
+
+// Liberar el resultado y cerrar la conexión
+$stmt->free_result();
+$stmt->close();
+$conexion->close();
+?>
+

@@ -10,9 +10,9 @@
     <form class="login-form" action="login.php" method="post">
         <h1>Login</h1>
         <label>Usuario</label>
-        <input type="text" placeholder="Ingrese el usuario" name="usuario" required>
+        <input type="text" placeholder="Ingrese el usuario" name="username" required>
         <label>Usuario</label>
-        <input type="password" placeholder="Ingrese su contraseña" name="contraseña" required>
+        <input type="password" placeholder="Ingrese su contraseña" name="contra" required>
         <input type="submit" value="Ingresar">
     </form>
 </body>

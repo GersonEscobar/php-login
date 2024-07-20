@@ -1,7 +1,12 @@
 <?php
 $conexion = new mysqli("localhost", "root", "1234", "login_db");
-
-if ($conexion->connect_error) {
-    die("Connection failed: " . $conexion->connect_error);
+try{
+    $message = "Conexión exitosa";
+    echo "<script>console.log('{$message}');</script>";
+} catch (PDOException $e) {
+    // Manejar errores de conexión
+    $message = "Conexión fallida";
+    echo "<script>console.log('{$message}');</script>";
 }
+
 ?>
